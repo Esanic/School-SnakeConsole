@@ -18,11 +18,13 @@ namespace GruppSnake
             ConsoleRenderer renderer = new ConsoleRenderer(world);
 
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
+            Food mat = new Food('#', world);
+            world.gameObjects.Add(mat);
+            
             Player spelare = new Player('O', world);
             world.gameObjects.Add(spelare);
 
-            Food mat = new Food('#', world);
-            world.gameObjects.Add(mat);
+            
 
             //for(int i = 0; i<world.poäng; i++)
             //{

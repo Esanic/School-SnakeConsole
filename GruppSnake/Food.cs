@@ -30,7 +30,7 @@ namespace GruppSnake
 
         public override void Update()
         {
-            if (position.x == world.gameObjects[0].position.x && position.y == world.gameObjects[0].position.y)
+            if (position.x == world.gameObjects[1].position.x && position.y == world.gameObjects[1].position.y)
             {
                 randomPosition();
                 world.poäng++;
