@@ -9,25 +9,32 @@ namespace GruppSnake
     internal class Player : GameObject
     {
         public Direction direction;
-        public GameWorld world;
+        GameWorld world;
 
         public enum Direction
         {
             Left,
             Right,
             Up,
-            Down
+            Down,
+            Pause
         }
 
         public Player(char appearance, GameWorld gameWorld)
         {
             this.appearance = appearance;
-            position = new Position(10, 10);
             world = gameWorld;
+            position = new Position(world.bredd/2, world.höjd/2);
         }
 
         public override void Update()
         {
+            if (direction == Direction.Pause)
+            {
+                position.x = position.x;
+                position.y = position.y;
+            }
+                
             if (direction == Direction.Left)
             {
                 if(position.x<=0)

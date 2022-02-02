@@ -14,17 +14,31 @@ namespace GruppSnake
         {
             // Initialisera spelet
             const int frameRate = 5;
-            GameWorld world = new GameWorld(100,40);
+            GameWorld world = new GameWorld(50,20);
             ConsoleRenderer renderer = new ConsoleRenderer(world);
 
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
             Player spelare = new Player('O', world);
             world.gameObjects.Add(spelare);
 
+            Food mat = new Food('#', world);
+            world.gameObjects.Add(mat);
+
+            //for(int i = 0; i<world.poäng; i++)
+            //{
+            //    Tail svans = new Tail(spelare, 'o', world);
+            //    world.gameObjects.Add(svans);
+            //}
+
             // Huvudloopen
             bool running = true;
             while (running)
             {
+                for (int i = 0; i < world.poäng; i++)
+                {
+                    Tail svans = new Tail(spelare, 'o', world);
+                    world.gameObjects.Add(svans);
+                }
                 // Kom ihåg vad klockan var i början
                 DateTime before = DateTime.Now;
 
@@ -35,21 +49,37 @@ namespace GruppSnake
                     case ConsoleKey.Q:
                         running = false;
                         break;
+                    case ConsoleKey.P:
+                        spelare.direction = Player.Direction.Pause;
+                        break;
+                    //up
                     case ConsoleKey.W:
                         spelare.direction = Player.Direction.Up;
                         break;
+                    case ConsoleKey.UpArrow:
+                        spelare.direction = Player.Direction.Up;
+                        break;
+                    //down
                     case ConsoleKey.S:
                         spelare.direction = Player.Direction.Down;
                         break;
+                    case ConsoleKey.DownArrow:
+                        spelare.direction = Player.Direction.Down;
+                        break;
+                    //left
                     case ConsoleKey.A:
                         spelare.direction = Player.Direction.Left;
                         break;
+                    case ConsoleKey.LeftArrow:
+                        spelare.direction = Player.Direction.Left;
+                        break;
+                    //right
                     case ConsoleKey.D:
                         spelare.direction = Player.Direction.Right;
                         break;
-
-                    // TODO Lägg till logik för andra knapptryckningar
-                    // ...
+                    case ConsoleKey.RightArrow:
+                        spelare.direction = Player.Direction.Right;
+                        break;
                 }
 
                 // Uppdatera världen och rendera om
