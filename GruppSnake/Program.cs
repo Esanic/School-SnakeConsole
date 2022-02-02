@@ -14,11 +14,11 @@ namespace GruppSnake
         {
             // Initialisera spelet
             const int frameRate = 5;
-            GameWorld world = new GameWorld(50,20);
+            GameWorld world = new GameWorld(100,40);
             ConsoleRenderer renderer = new ConsoleRenderer(world);
 
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
-            Player spelare = new Player('O');
+            Player spelare = new Player('O', world);
             world.gameObjects.Add(spelare);
 
             // Huvudloopen
@@ -53,6 +53,7 @@ namespace GruppSnake
                 }
 
                 // Uppdatera världen och rendera om
+                renderer.rensa();
                 world.Update();
                 renderer.Render();
 

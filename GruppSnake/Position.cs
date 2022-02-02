@@ -8,8 +8,8 @@ namespace GruppSnake
 {
     public class Position
     {
-        public int x = 0;
-        public int y = 0;
+        public int x;
+        public int y;
 
         public Position(int x, int y)
         {

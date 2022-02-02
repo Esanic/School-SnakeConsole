@@ -17,10 +17,20 @@ namespace GruppSnake
 
         public void Render()
         {
-            // TODO Rendera spelvärlden (och poängräkningen)
-            Console.SetCursorPosition(0, 0);
+            // TODO Rendera spelvärlden och poängräkningen)
+          
+            Console.CursorVisible = false;
+            Console.SetCursorPosition(world.gameObjects[0].position.x, world.gameObjects[0].position.y);
             Console.Write(world.gameObjects[0].appearance);
             // Använd Console.SetCursorPosition(int x, int y) and Console.Write(char)
         }
+        public void rensa()
+        {
+            Console.SetCursorPosition(world.gameObjects[0].position.x, world.gameObjects[0].position.y);
+            Console.Write(" ");
+           
+        }
     }
+
 }
+
