@@ -8,6 +8,16 @@ namespace GruppSnake
     {
         public Position position;
         public char appearance;
+        public enum Direction
+        {
+            Right,
+            Left,
+            Up,
+            Down,
+            Pause
+        }
+
+        public Direction direction;
 
         public abstract void Update();
     }

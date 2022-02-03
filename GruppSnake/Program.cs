@@ -18,13 +18,15 @@ namespace GruppSnake
             ConsoleRenderer renderer = new ConsoleRenderer(world);
 
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
-            Food mat = new Food('#', world);
-            world.gameObjects.Add(mat);
             
             Player spelare = new Player('O', world);
+
+            Food mat = new Food('#', world, spelare);
+            world.gameObjects.Add(mat);
+
             world.gameObjects.Add(spelare);
 
-            
+            //Tail svans = new Tail(spelare, 'o', world);
 
             //for(int i = 0; i<world.poäng; i++)
             //{
@@ -36,11 +38,12 @@ namespace GruppSnake
             bool running = true;
             while (running)
             {
-                for (int i = 0; i < world.poäng; i++)
-                {
-                    Tail svans = new Tail(spelare, 'o', world);
-                    world.gameObjects.Add(svans);
-                }
+                //for (int i = 0; i < world.poäng; i++)
+                //{
+                //    Tail svans = new Tail(spelare, 'o', world);
+                //    world.gameObjects.Add(svans);
+                //}
+
                 // Kom ihåg vad klockan var i början
                 DateTime before = DateTime.Now;
 

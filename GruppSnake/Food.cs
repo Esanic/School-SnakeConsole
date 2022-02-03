@@ -9,13 +9,15 @@ namespace GruppSnake
     internal class Food : GameObject
     {
         private GameWorld world;
+        Player spelare;
         
-        public Food(char appearance, GameWorld gameWorld)
+        public Food(char appearance, GameWorld gameWorld, Player spelare1)
         {
 
             
             this.appearance = appearance;
             world = gameWorld;
+            spelare = spelare1;
             randomPosition();
 
         }
@@ -34,6 +36,8 @@ namespace GruppSnake
             {
                 randomPosition();
                 world.poäng++;
+                Tail svans = new Tail(spelare, 'o', world);
+                world.gameObjects.Add(svans);
             }
         }
     }

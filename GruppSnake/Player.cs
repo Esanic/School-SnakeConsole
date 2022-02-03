@@ -8,17 +8,16 @@ namespace GruppSnake
 {
     internal class Player : GameObject
     {
-        public Direction direction;
         GameWorld world;
 
-        public enum Direction
-        {
-            Left,
-            Right,
-            Up,
-            Down,
-            Pause
-        }
+        //public enum Direction
+        //{
+        //    Left,
+        //    Right,
+        //    Up,
+        //    Down,
+        //    Pause
+        //}
 
         public Player(char appearance, GameWorld gameWorld)
         {

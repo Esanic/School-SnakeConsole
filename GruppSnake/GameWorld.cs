@@ -21,7 +21,7 @@ namespace GruppSnake
 
         public void Update()
         {
-            foreach (GameObject obj in gameObjects)
+            foreach (GameObject obj in gameObjects.ToList())
             {
                 obj.Update();
             }
