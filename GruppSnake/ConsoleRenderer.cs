@@ -21,17 +21,20 @@ namespace GruppSnake
             // TODO Rendera spelvärlden och poängräkningen)
             Console.Title = $"Snake - Poäng: {world.poäng}";
             Console.CursorVisible = false;
-            for(int i = 0; i < world.gameObjects.Count; i++)
+            //for (int i = 0; i < world.gameObjects.Count; i++)
+            //{
+            //    Console.SetCursorPosition(world.gameObjects[i].position.x, world.gameObjects[i].position.y);
+            //    Console.Write(world.gameObjects[i].appearance);
+            //}
+            for (int i = world.gameObjects.Count - 1; i >= 0; i--)
             {
                 Console.SetCursorPosition(world.gameObjects[i].position.x, world.gameObjects[i].position.y);
                 Console.Write(world.gameObjects[i].appearance);
             }
         }
 
-        public void rensa()
+        public void Clean()
         {
-            //Console.SetCursorPosition(world.gameObjects[0].position.x, world.gameObjects[0].position.y);
-            //Console.Write(" ");
             for (int i = 0; i < world.gameObjects.Count; i++)
             {
                 Console.SetCursorPosition(world.gameObjects[i].position.x, world.gameObjects[i].position.y);

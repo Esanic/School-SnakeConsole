@@ -20,8 +20,6 @@ namespace GruppSnake
 
             for(int i = 0; i < world.gameObjects.Count; i++) 
             {
-                this.direction = world.gameObjects[i].direction;
-
                 if (world.gameObjects[i].direction == Direction.Left)
                 {
                     position = new Position(world.gameObjects[i].position.x, world.gameObjects[i].position.y);
@@ -41,55 +39,13 @@ namespace GruppSnake
             }
         }
 
-        //Svansen är hårdkodad att börja efter world.gameObjects[1].
-        //Har provat att använda for-loop men då blir svansen centrerad utan att följa efter Ormen.
         public override void Update()
         {
-            for (int i = 0; i < world.gameObjects.Count; i++)
+
+            for (int i = 2; i < world.gameObjects.Count; i++)
             {
-                if (world.gameObjects[i].direction == Direction.Left)
-                {
-                    if (position.x <= 0)
-                    {
-                        position.x = world.bredd - 1;
-                    }
-                    else
-                        position.x -= 1;
-                }
-
-                if (world.gameObjects[i].direction == Direction.Right)
-                {
-                    if (position.x >= world.bredd - 1)
-                    {
-                        position.x = 0;
-                    }
-                    else
-                        position.x += 1;
-                }
-
-                if (world.gameObjects[i].direction == Direction.Up)
-                {
-                    if (position.y <= 0)
-                    {
-                        position.y = world.höjd - 1;
-                    }
-                    else
-                        position.y -= 1;
-                }
-
-                if (world.gameObjects[i].direction == Direction.Down)
-                {
-                    if (position.y >= world.höjd - 1)
-                    {
-                        position.y = 0;
-                    }
-                    else
-                        position.y += 1;
-                }
+                position = new Position(world.gameObjects[i-1].position.x, world.gameObjects[i-1].position.y);
             }
-
-
-
         }
     }
 }

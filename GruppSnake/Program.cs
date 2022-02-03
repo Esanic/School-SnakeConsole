@@ -20,30 +20,15 @@ namespace GruppSnake
             // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
             
             Player spelare = new Player('O', world);
-
             Food mat = new Food('#', world, spelare);
+            
             world.gameObjects.Add(mat);
-
             world.gameObjects.Add(spelare);
-
-            //Tail svans = new Tail(spelare, 'o', world);
-
-            //for(int i = 0; i<world.poäng; i++)
-            //{
-            //    Tail svans = new Tail(spelare, 'o', world);
-            //    world.gameObjects.Add(svans);
-            //}
 
             // Huvudloopen
             bool running = true;
             while (running)
             {
-                //for (int i = 0; i < world.poäng; i++)
-                //{
-                //    Tail svans = new Tail(spelare, 'o', world);
-                //    world.gameObjects.Add(svans);
-                //}
-
                 // Kom ihåg vad klockan var i början
                 DateTime before = DateTime.Now;
 
@@ -88,8 +73,9 @@ namespace GruppSnake
                 }
 
                 // Uppdatera världen och rendera om
-                renderer.rensa();
+                renderer.Clean();
                 world.Update();
+                //renderer.RenderTail();
                 renderer.Render();
 
                 // Mät hur lång tid det tog

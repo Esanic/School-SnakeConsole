@@ -10,15 +10,6 @@ namespace GruppSnake
     {
         GameWorld world;
 
-        //public enum Direction
-        //{
-        //    Left,
-        //    Right,
-        //    Up,
-        //    Down,
-        //    Pause
-        //}
-
         public Player(char appearance, GameWorld gameWorld)
         {
             this.appearance = appearance;
