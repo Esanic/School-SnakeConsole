@@ -20,31 +20,17 @@ namespace GruppSnake
 
             for(int i = 0; i < world.gameObjects.Count; i++) 
             {
-                if (world.gameObjects[i].direction == Direction.Left)
-                {
-                    position = new Position(world.gameObjects[i].position.x, world.gameObjects[i].position.y);
-                }
-                if (world.gameObjects[i].direction == Direction.Right)
-                {
-                    position = new Position(world.gameObjects[i].position.x, world.gameObjects[i].position.y);
-                }
-                if (world.gameObjects[i].direction == Direction.Up)
-                {
-                    position = new Position(world.gameObjects[i].position.x, world.gameObjects[i].position.y);
-                }
-                if (world.gameObjects[i].direction == Direction.Down)
-                {
-                    position = new Position(world.gameObjects[i].position.x, world.gameObjects[i].position.y);
-                }
+                position = new Position(world.gameObjects[i].position.x, world.gameObjects[i].position.y);
             }
         }
 
         public override void Update()
         {
 
+
             for (int i = 2; i < world.gameObjects.Count; i++)
             {
-                position = new Position(world.gameObjects[i-1].position.x, world.gameObjects[i-1].position.y);
+                position = new Position(world.gameObjects[i - 1].position.x, world.gameObjects[i - 1].position.y);
             }
         }
     }
