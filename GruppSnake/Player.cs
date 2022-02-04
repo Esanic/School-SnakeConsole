@@ -12,7 +12,17 @@ namespace GruppSnake
     internal class Player : GameObject
     {
         GameWorld world;
-        
+        public enum Direction
+        {
+            Right,
+            Left,
+            Up,
+            Down,
+            Pause
+        }
+
+        public Direction direction;
+
         /// <summary>
         /// Creates a new Player with given appearance and the GameWorld it is gonna operate in.
         /// </summary>

@@ -4,20 +4,14 @@ using System.Text;
 
 namespace GruppSnake
 {
+    /// <summary>
+    /// Interface abstract class that is the base for all the objects that 
+    /// will be rendered within the game.
+    /// </summary>
     abstract class GameObject
     {
         public Position position;
         public char appearance;
-        public enum Direction
-        {
-            Right,
-            Left,
-            Up,
-            Down,
-            Pause
-        }
-
-        public Direction direction;
 
         public abstract void Update();
     }

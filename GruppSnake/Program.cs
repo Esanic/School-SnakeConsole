@@ -9,37 +9,45 @@ namespace GruppSnake
         /// Checks Console to see if a keyboard key has been pressed, if so returns it, otherwise NoName.
         /// </summary>
         static ConsoleKey ReadKeyIfExists() => Console.KeyAvailable ? Console.ReadKey(intercept: true).Key : ConsoleKey.NoName;
-
-
-
+       
+        /// <summary>
+        /// Method that starts the game and have a loop to check if the player either quit or has lost.
+        /// </summary>
         static void Loop()
         {
             
-            // Initialisera spelet
-            const int frameRate = 5;
+            // Initializing the game
+            const int frameRate = 10;
+            
+            //Instanciating a GameWorld and a ConsoleRenderer
             GameWorld world = new GameWorld(50,20);
             ConsoleRenderer renderer = new ConsoleRenderer(world);
-            
+
+            //Instanciating the player
             Player spelare = new Player('0', world);
-            Food mat = new Food('#', world, spelare);
+            //Instanciating the food
+            Food mat = new Food('#', world);
             
+            //Adds the objects to the gameObjects list
             world.gameObjects.Add(mat);
             world.gameObjects.Add(spelare);
 
-            // Huvudloopen
+            // Mainloop to check if the game is still running
             bool running = true;
             while (running)
             {
                 // Kom ihåg vad klockan var i början
                 DateTime before = DateTime.Now;
 
-                // Hantera knapptryckningar från användaren
+                // Handles the key presses from the user
                 ConsoleKey key = ReadKeyIfExists();
                 switch (key)
                 {
+                    //quit
                     case ConsoleKey.Q:
                         running = false;
                         break;
+                    //pause
                     case ConsoleKey.P:
                         spelare.direction = Player.Direction.Pause;
                         break;
@@ -73,7 +81,8 @@ namespace GruppSnake
                         break;
                 }
 
-                // Uppdatera världen och rendera om
+                // Cleans the world, checks if the head has collided
+                // Updates the world and then render everything again
                 renderer.Clean();
                 spelare.CollisionCheck();
                 if (spelare.CollisionCheck() == false)
@@ -96,12 +105,9 @@ namespace GruppSnake
                     Thread.Sleep((int)frameTime);
                 }
                 
+                // Method that types out game over and display the users score
                 void GameOver()
                 {
-                    void CursorPosition()
-                    {
-                        Console.SetCursorPosition(10, 0);
-                    }
                     Console.SetCursorPosition(10, 3);
                     Console.WriteLine($"  _____          __  __ ______ ");
                     Console.SetCursorPosition(10, 4);

@@ -4,9 +4,16 @@ using System.Text;
 
 namespace GruppSnake
 {
+    /// <summary>
+    /// Class that handles the console window size and also renders the score and appearance of the different game objects.
+    /// </summary>
     class ConsoleRenderer
     {
         private GameWorld world;
+        /// <summary>
+        /// Sets the console window size according to the given world size.
+        /// </summary>
+        /// <param name="gameWorld">What world the constructor should use to set the size of the console window.</param>
         public ConsoleRenderer(GameWorld gameWorld)
         {
             world = gameWorld;
@@ -14,6 +21,11 @@ namespace GruppSnake
             Console.SetBufferSize(world.bredd, world.höjd);
         }
 
+        /// <summary>
+        /// Method that displays the score within the console window title
+        /// Hides the cursor from the console window
+        /// Render each game object in it's position and with it's appearance
+        /// </summary>
         public void Render()
         {
             Console.Title = $"Snake - Poäng: {world.poäng}";
@@ -25,7 +37,9 @@ namespace GruppSnake
                 Console.Write(world.gameObjects[i].appearance);
             }
         }
-
+        /// <summary>
+        /// Clears the game objects appearance before the new render.
+        /// </summary>
         public void Clean()
         {
             for (int i = 0; i < world.gameObjects.Count; i++)
