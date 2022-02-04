@@ -74,7 +74,10 @@ namespace GruppSnake
                 position.y += 1;
             }
         }
-
+        /// <summary>
+        /// Method to check if the head collisions with the tail
+        /// </summary>
+        /// <returns>if the head collisions with it's tail it returns false, otherwise true</returns>
         public bool CollisionCheck()
         {
             for (int i = 3; i < world.gameObjects.Count; i++)
