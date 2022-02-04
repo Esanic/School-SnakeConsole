@@ -74,5 +74,17 @@ namespace GruppSnake
                 position.y += 1;
             }
         }
+
+        public bool CollisionCheck()
+        {
+            for (int i = 3; i < world.gameObjects.Count; i++)
+            {
+                if (world.gameObjects[i].position.x == world.gameObjects[1].position.x && world.gameObjects[i].position.y == world.gameObjects[1].position.y)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
