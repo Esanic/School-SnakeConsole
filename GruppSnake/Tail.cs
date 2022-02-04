@@ -26,10 +26,8 @@ namespace GruppSnake
             this.world = world;
             följarNummer = follow;
 
-            for(int i = 0; i < world.gameObjects.Count; i++) 
-            {
-                position = new Position(world.gameObjects[i].position.x, world.gameObjects[i].position.y);
-            }
+            position = new Position(world.gameObjects[följarNummer].position.x, world.gameObjects[följarNummer].position.y);
+           
         }
         /// <summary>
         /// Method that updates the position of the tail to follow it's given index-number.

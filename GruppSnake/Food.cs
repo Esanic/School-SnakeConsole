@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace GruppSnake
 {
     /// <summary>
-    /// Class that shows the food in the console and has logic to spawn a new food when the previous one is eaten.
+    /// Class that specifies what the food is and has logic to spawn a new food when the previous one is eaten.
     /// If the food is eaten it also increments the score counter.
     /// </summary>
     internal class Food : GameObject
