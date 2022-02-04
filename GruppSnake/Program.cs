@@ -16,10 +16,8 @@ namespace GruppSnake
             const int frameRate = 5;
             GameWorld world = new GameWorld(50,20);
             ConsoleRenderer renderer = new ConsoleRenderer(world);
-
-            // TODO Skapa spelare och andra objekt etc. genom korrekta anrop till vår GameWorld-instans
             
-            Player spelare = new Player('O', world);
+            Player spelare = new Player('0', world);
             Food mat = new Food('#', world, spelare);
             
             world.gameObjects.Add(mat);
@@ -75,7 +73,6 @@ namespace GruppSnake
                 // Uppdatera världen och rendera om
                 renderer.Clean();
                 world.Update();
-                //renderer.RenderTail();
                 renderer.Render();
 
                 // Mät hur lång tid det tog

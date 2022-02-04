@@ -10,11 +10,10 @@ namespace GruppSnake
     {
         private GameWorld world;
         Player spelare;
+        int följarNummer = 1;
         
         public Food(char appearance, GameWorld gameWorld, Player spelare1)
         {
-
-            
             this.appearance = appearance;
             world = gameWorld;
             spelare = spelare1;
@@ -36,8 +35,10 @@ namespace GruppSnake
             {
                 randomPosition();
                 world.poäng++;
-                Tail svans = new Tail(spelare, 'o', world);
+                
+                Tail svans = new Tail(spelare, 'o', world, följarNummer);
                 world.gameObjects.Add(svans);
+                följarNummer++;
             }
         }
     }

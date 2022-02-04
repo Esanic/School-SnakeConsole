@@ -8,15 +8,16 @@ namespace GruppSnake
 {
     internal class Tail : Player
     {
-
-        //Problemet atm är logiken för hur svansen ska flytta sig.
         GameWorld world;
         Player spelare;
-        public Tail(Player spelare, char appearance, GameWorld world) : base(appearance, world)
+        int följarNummer;
+
+        public Tail(Player player, char appearance, GameWorld world, int follow) : base(appearance, world)
         {
             this.appearance = appearance;
             this.world = world;
-            this.spelare = spelare;
+            this.spelare = player;
+            följarNummer = follow;
 
             for(int i = 0; i < world.gameObjects.Count; i++) 
             {
@@ -26,12 +27,7 @@ namespace GruppSnake
 
         public override void Update()
         {
-
-
-            for (int i = 2; i < world.gameObjects.Count; i++)
-            {
-                position = new Position(world.gameObjects[i - 1].position.x, world.gameObjects[i - 1].position.y);
-            }
+            position = new Position(world.gameObjects[följarNummer].position.x, world.gameObjects[följarNummer].position.y);
         }
     }
 }
