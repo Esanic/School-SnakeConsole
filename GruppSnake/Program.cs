@@ -86,8 +86,8 @@ namespace GruppSnake
                 {
                     world.gameObjects.Clear();
                     Console.Clear();
-                    GameOver gameover = new GameOver();
-                    gameover.Gameover(world);
+                    TypeOut Gameover = new TypeOut();
+                    Gameover.Gameover(world);
                     Console.ReadLine();
                     running = false;
                 }
@@ -149,30 +149,8 @@ namespace GruppSnake
                         }
                         break;
                    case "2":
-                        Console.Clear();
-                        Console.WriteLine("Instruktioner");
-                        Console.WriteLine("-------------");
-                        Console.Write("UPP:");
-                        Console.SetCursorPosition(10, 2);
-                        Console.Write("W eller piltangent upp");
-                        Console.WriteLine("");
-                        Console.WriteLine("NER:");
-                        Console.SetCursorPosition(10, 3);
-                        Console.Write("S eller piltangent ner");
-                        Console.WriteLine("");
-                        Console.WriteLine("VÄNSTER:");
-                        Console.SetCursorPosition(10, 4);
-                        Console.Write("A eller piltangent vänster");
-                        Console.WriteLine("");
-                        Console.WriteLine("HÖGER:");
-                        Console.SetCursorPosition(10, 5);
-                        Console.Write("D eller piltangent höger");
-                        Console.WriteLine("");
-                        Console.WriteLine("AVSLUTA:");
-                        Console.SetCursorPosition(10, 6);
-                        Console.Write("Q");
-                        Console.ReadLine();
-                        Console.Clear();
+                        TypeOut instructions = new TypeOut();
+                        instructions.Instructions();
                         break;
                    case "3":
                         Console.Clear();

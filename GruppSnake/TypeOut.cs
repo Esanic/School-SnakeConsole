@@ -9,7 +9,7 @@ namespace GruppSnake
     /// <summary>
     /// Class that handles the game over screen.
     /// </summary>
-    internal class GameOver
+    internal class TypeOut
     {
         /// <summary>
         /// Method that types out the Game Over screen with the players score upon game over.
@@ -45,6 +45,34 @@ namespace GruppSnake
             Console.WriteLine($"");
             Console.SetCursorPosition(18, 16);
             Console.WriteLine($"Du fick {world.poäng} poäng");
+        }
+
+        public void Instructions()
+        {
+            Console.Clear();
+            Console.WriteLine("Instruktioner");
+            Console.WriteLine("-------------");
+            Console.Write("UPP:");
+            Console.SetCursorPosition(10, 2);
+            Console.Write("W eller piltangent upp");
+            Console.WriteLine("");
+            Console.WriteLine("NER:");
+            Console.SetCursorPosition(10, 3);
+            Console.Write("S eller piltangent ner");
+            Console.WriteLine("");
+            Console.WriteLine("VÄNSTER:");
+            Console.SetCursorPosition(10, 4);
+            Console.Write("A eller piltangent vänster");
+            Console.WriteLine("");
+            Console.WriteLine("HÖGER:");
+            Console.SetCursorPosition(10, 5);
+            Console.Write("D eller piltangent höger");
+            Console.WriteLine("");
+            Console.WriteLine("AVSLUTA:");
+            Console.SetCursorPosition(10, 6);
+            Console.Write("Q");
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }
