@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Text.RegularExpressions;
 
 namespace GruppSnake
 {
@@ -13,12 +14,12 @@ namespace GruppSnake
         /// <summary>
         /// Method that starts the game and have a loop to check if the player either quit or has lost.
         /// </summary>
-        static void Loop()
+        public static void Loop(int difficulty)
         {
-            
+
             // Initializing the game
-            const int frameRate = 10;
-            
+            int frameRate = difficulty*2;
+
             //Instanciating a GameWorld and a ConsoleRenderer
             GameWorld world = new GameWorld(50,20);
             ConsoleRenderer renderer = new ConsoleRenderer(world);
@@ -26,7 +27,7 @@ namespace GruppSnake
             //Instanciating the player
             Player spelare = new Player('0', world);
             //Instanciating the food
-            Food mat = new Food('#', world);
+            Food mat = new Food('#', world, difficulty);
             
             //Adds the objects to the gameObjects list
             world.gameObjects.Add(mat);
@@ -46,10 +47,6 @@ namespace GruppSnake
                     //quit
                     case ConsoleKey.Q:
                         running = false;
-                        break;
-                    //pause
-                    case ConsoleKey.P:
-                        spelare.direction = Player.Direction.Pause;
                         break;
                     //up
                     case ConsoleKey.W:
@@ -89,7 +86,8 @@ namespace GruppSnake
                 {
                     world.gameObjects.Clear();
                     Console.Clear();
-                    GameOver();
+                    GameOver gameover = new GameOver();
+                    gameover.Gameover(world);
                     Console.ReadLine();
                     running = false;
                 }
@@ -104,46 +102,105 @@ namespace GruppSnake
                     // Vänta rätt antal millisekunder innan loopens nästa varv
                     Thread.Sleep((int)frameTime);
                 }
-                
-                // Method that types out game over and display the users score
-                void GameOver()
-                {
-                    Console.SetCursorPosition(10, 3);
-                    Console.WriteLine($"  _____          __  __ ______ ");
-                    Console.SetCursorPosition(10, 4);
-                    Console.WriteLine($" / ____|   /\\   |  \\/  |  ____|");
-                    Console.SetCursorPosition(10, 5);
-                    Console.WriteLine($"| |  __   /  \\  | \\  / | |__   ");
-                    Console.SetCursorPosition(10, 6);
-                    Console.WriteLine($"| | |_ | / /\\ \\ | |\\/| |  __|  ");
-                    Console.SetCursorPosition(10, 7);
-                    Console.WriteLine($"| |__| |/ ____ \\| |  | | |____ ");
-                    Console.SetCursorPosition(10, 8);
-                    Console.WriteLine($" \\_____/_/    \\_\\_|  |_|______|");
-                    Console.SetCursorPosition(10, 9);
-                    Console.WriteLine($"  ______      ________ _____  ");
-                    Console.SetCursorPosition(10, 10);
-                    Console.WriteLine($" / __ \\ \\    / /  ____|  __ \\ ");
-                    Console.SetCursorPosition(10, 11);
-                    Console.WriteLine($"| |  | \\ \\  / /| |__  | |__) |");
-                    Console.SetCursorPosition(10, 12);
-                    Console.WriteLine($"| |  | |\\ \\/ / |  __| |  _  / ");
-                    Console.SetCursorPosition(10, 13);
-                    Console.WriteLine($"| |__| | \\  /  | |____| | \\ \\ ");
-                    Console.SetCursorPosition(10, 14);
-                    Console.WriteLine($" \\____/   \\/   |______|_|  \\_\\");
-                    Console.SetCursorPosition(10, 15);
-                    Console.WriteLine($"");
-                    Console.SetCursorPosition(18, 16);
-                    Console.WriteLine($"Du fick {world.poäng} poäng");
-                }
             }
         }
 
         static void Main(string[] args)
         {
             // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
-            Loop();
+            bool running = true;
+            
+            Console.WriteLine("Välkommen till Snake!");
+            Console.WriteLine("---------------------");
+            while (running == true)
+            {
+                string menuChoice;
+                Console.WriteLine("1. Spela");
+                Console.WriteLine("2. Instruktioner");
+                Console.WriteLine("3. Avsluta");
+                menuChoice = Console.ReadLine();
+
+                switch (menuChoice)
+                {
+                    case "1":
+                        Console.Clear();
+                        bool runningChoiceOne = true;
+                        while (runningChoiceOne == true)
+                        {
+                            Console.WriteLine("Vänligen ange en svårighetsnivå. 1-9");
+                            string strDifficulty = Console.ReadLine();
+
+                            if (Regex.IsMatch(strDifficulty, @"\b[1-9]\b"))
+                            {
+                                int difficulty = int.Parse(strDifficulty);
+                                Console.Clear();
+                                Loop(difficulty);
+                                Console.Clear();
+                                Console.SetCursorPosition(0, 0);
+                                break;
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Du angav inte en siffra mellan 1-9. Försök igen.");
+                                Console.ReadLine();
+                                Console.Clear();
+                            }
+                        }
+                        break;
+                   case "2":
+                        Console.Clear();
+                        Console.WriteLine("Instruktioner");
+                        Console.WriteLine("-------------");
+                        Console.Write("UPP:");
+                        Console.SetCursorPosition(10, 2);
+                        Console.Write("W eller piltangent upp");
+                        Console.WriteLine("");
+                        Console.WriteLine("NER:");
+                        Console.SetCursorPosition(10, 3);
+                        Console.Write("S eller piltangent ner");
+                        Console.WriteLine("");
+                        Console.WriteLine("VÄNSTER:");
+                        Console.SetCursorPosition(10, 4);
+                        Console.Write("A eller piltangent vänster");
+                        Console.WriteLine("");
+                        Console.WriteLine("HÖGER:");
+                        Console.SetCursorPosition(10, 5);
+                        Console.Write("D eller piltangent höger");
+                        Console.WriteLine("");
+                        Console.WriteLine("AVSLUTA:");
+                        Console.SetCursorPosition(10, 6);
+                        Console.Write("Q");
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
+                   case "3":
+                        Console.Clear();
+                        running = false;
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Du angav inte ett giltigt menyval. Försök igen.");
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
+                }
+
+                
+                //else if (menuChoice == "3")
+                //{
+                //    Console.Clear();
+                //    break;
+                //}
+
+                //else
+                //{
+                //    Console.WriteLine("Du angav inte ett giltigt menyval. Försök igen.");
+                //    Console.ReadLine();
+                //    Console.Clear();
+                //}
+
+            }
         }
     }
 }

@@ -13,8 +13,9 @@ namespace GruppSnake
     internal class Food : GameObject
     {
         private GameWorld world;
-
         int följarNummer = 1;
+        int difficulty;
+
         /// <summary>
         /// Constructor that specifies the appearance, what world it should spawn in and keep 
         /// track of the player who will eat the food.
@@ -22,11 +23,12 @@ namespace GruppSnake
         /// <param name="appearance">What the food will look like when rendered.</param>
         /// <param name="gameWorld">What world the food will spawn in.</param>
         /// <param name="spelare1">Which player will eat the food</param>
-        public Food(char appearance, GameWorld gameWorld)
+        public Food(char appearance, GameWorld gameWorld, int difficulty)
         {
             this.appearance = appearance;
             world = gameWorld;
             randomPosition();
+            this.difficulty = difficulty;
 
         }
         /// <summary>
@@ -52,7 +54,7 @@ namespace GruppSnake
             if (position.x == world.gameObjects[1].position.x && position.y == world.gameObjects[1].position.y)
             {
                 randomPosition();
-                world.poäng++;
+                world.poäng += difficulty;
                 
                 Tail svans = new Tail('o', world, följarNummer);
                 world.gameObjects.Add(svans);
