@@ -111,7 +111,7 @@ namespace GruppSnake
         static void Main(string[] args)
         {
             WindowSize windowSize = new WindowSize(50, 20);
-
+            Console.Title = "Snake";
             Console.SetWindowSize(windowSize.width, windowSize.height);
             Console.SetBufferSize(windowSize.width, windowSize.height);
 
