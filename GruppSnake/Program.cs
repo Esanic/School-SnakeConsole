@@ -185,21 +185,6 @@ namespace GruppSnake
                         Console.Clear();
                         break;
                 }
-
-                
-                //else if (menuChoice == "3")
-                //{
-                //    Console.Clear();
-                //    break;
-                //}
-
-                //else
-                //{
-                //    Console.WriteLine("Du angav inte ett giltigt menyval. Försök igen.");
-                //    Console.ReadLine();
-                //    Console.Clear();
-                //}
-
             }
         }
     }

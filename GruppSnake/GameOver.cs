@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace GruppSnake
 {
+    /// <summary>
+    /// Class that handles the game over screen.
+    /// </summary>
     internal class GameOver
     {
+        /// <summary>
+        /// Method that types out the Game Over screen with the players score upon game over.
+        /// </summary>
+        /// <param name="world">The world that the score is counted in.</param>
         public void Gameover(GameWorld world)
         {
             Console.SetCursorPosition(10, 3);

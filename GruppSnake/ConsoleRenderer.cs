@@ -24,7 +24,7 @@ namespace GruppSnake
         /// <summary>
         /// Method that displays the score within the console window title
         /// Hides the cursor from the console window
-        /// Render each game object in it's position and with it's appearance
+        /// Render each game object in it's position and with it's appearance and color according to what object it is.
         /// </summary>
         public void Render()
         {
