@@ -107,7 +107,9 @@ namespace GruppSnake
 
         static void Main(string[] args)
         {
-            // Vi kan ev. ha någon meny här, men annars börjar vi bara spelet direkt
+            Console.SetWindowSize(50,20);
+            Console.SetBufferSize(50,20);
+
             bool running = true;
             
             Console.WriteLine("Välkommen till Snake!");
@@ -118,6 +120,8 @@ namespace GruppSnake
                 Console.WriteLine("1. Spela");
                 Console.WriteLine("2. Instruktioner");
                 Console.WriteLine("3. Avsluta");
+                Console.WriteLine("");
+                Console.Write("Ditt svar: ");
                 menuChoice = Console.ReadLine();
 
                 switch (menuChoice)
@@ -128,6 +132,8 @@ namespace GruppSnake
                         while (runningChoiceOne == true)
                         {
                             Console.WriteLine("Vänligen ange en svårighetsnivå. 1-9");
+                            Console.WriteLine("");
+                            Console.Write("Ditt svar: ");
                             string strDifficulty = Console.ReadLine();
 
                             if (Regex.IsMatch(strDifficulty, @"\b[1-9]\b"))
@@ -149,8 +155,8 @@ namespace GruppSnake
                         }
                         break;
                    case "2":
-                        TypeOut instructions = new TypeOut();
-                        instructions.Instructions();
+                        TypeOut Instructions = new TypeOut();
+                        Instructions.Instructions();
                         break;
                    case "3":
                         Console.Clear();

@@ -71,6 +71,9 @@ namespace GruppSnake
             Console.WriteLine("AVSLUTA:");
             Console.SetCursorPosition(10, 6);
             Console.Write("Q");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.Write("Tryck Enter för att gå tillbaka...");
             Console.ReadLine();
             Console.Clear();
         }
