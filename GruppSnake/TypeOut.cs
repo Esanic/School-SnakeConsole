@@ -44,9 +44,11 @@ namespace GruppSnake
             Console.SetCursorPosition(10, 15);
             Console.WriteLine($"");
             Console.SetCursorPosition(18, 16);
-            Console.WriteLine($"Du fick {world.poäng} poäng");
+            Console.WriteLine($"Du fick {world.score} poäng");
         }
-
+        /// <summary>
+        /// Method that types out the instructions for the game
+        /// </summary>
         public void Instructions()
         {
             Console.Clear();

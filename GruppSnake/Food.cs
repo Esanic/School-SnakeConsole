@@ -13,7 +13,7 @@ namespace GruppSnake
     internal class Food : GameObject
     {
         private GameWorld world;
-        int följarNummer = 1;
+        int followCount = 1;
         int difficulty;
 
         /// <summary>
@@ -37,8 +37,8 @@ namespace GruppSnake
         public void randomPosition()
         {   
             Random rnd = new Random();
-            int height = rnd.Next(world.höjd);
-            int width = rnd.Next(world.bredd);
+            int height = rnd.Next(world.height);
+            int width = rnd.Next(world.width);
             position = new Position(width, height);
         }
 
@@ -54,11 +54,11 @@ namespace GruppSnake
             if (position.x == world.gameObjects[1].position.x && position.y == world.gameObjects[1].position.y)
             {
                 randomPosition();
-                world.poäng += difficulty;
+                world.score += difficulty;
                 
-                Tail svans = new Tail('o', world, följarNummer);
-                world.gameObjects.Add(svans);
-                följarNummer++;
+                Tail tail = new Tail('o', world, followCount);
+                world.gameObjects.Add(tail);
+                followCount++;
             }
         }
     }

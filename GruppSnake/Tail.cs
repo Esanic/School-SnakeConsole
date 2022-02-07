@@ -12,7 +12,7 @@ namespace GruppSnake
     internal class Tail : GameObject
     {
         GameWorld world;
-        int följarNummer;
+        int followCount;
         /// <summary>
         /// Creates a new tail with given apperance, the game world it will operate in and 
         /// which index to follow. Sets the position for the tail to the last index in gameObject-list
@@ -24,9 +24,9 @@ namespace GruppSnake
         {
             this.appearance = appearance;
             this.world = world;
-            följarNummer = follow;
+            followCount = follow;
 
-            position = new Position(world.gameObjects[följarNummer].position.x, world.gameObjects[följarNummer].position.y);
+            position = new Position(world.gameObjects[followCount].position.x, world.gameObjects[followCount].position.y);
            
         }
         /// <summary>
@@ -34,7 +34,7 @@ namespace GruppSnake
         /// </summary>
         public override void Update()
         {
-            position = new Position(world.gameObjects[följarNummer].position.x, world.gameObjects[följarNummer].position.y);
+            position = new Position(world.gameObjects[followCount].position.x, world.gameObjects[followCount].position.y);
         }
     }
 }

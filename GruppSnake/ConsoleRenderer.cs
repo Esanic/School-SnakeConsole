@@ -17,8 +17,8 @@ namespace GruppSnake
         public ConsoleRenderer(GameWorld gameWorld)
         {
             world = gameWorld;
-            Console.SetWindowSize(world.bredd, world.höjd);
-            Console.SetBufferSize(world.bredd, world.höjd);
+            Console.SetWindowSize(world.width, world.height);
+            Console.SetBufferSize(world.width, world.height);
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace GruppSnake
         /// </summary>
         public void Render()
         {
-            Console.Title = $"Snake - Poäng: {world.poäng}";
+            Console.Title = $"Snake - Poäng: {world.score}";
             Console.CursorVisible = false;
 
             for (int i = world.gameObjects.Count - 1; i >= 0; i--)

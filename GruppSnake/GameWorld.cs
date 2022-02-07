@@ -10,21 +10,21 @@ namespace GruppSnake
     /// </summary>
     class GameWorld
     {
-        public int bredd;
-        public int höjd;
+        public int width;
+        public int height;
 
-        public int poäng = 0;
+        public int score = 0;
 
         public List<GameObject> gameObjects = new List<GameObject>();
         /// <summary>
         /// Constructor that specifies the size of the world.
         /// </summary>
-        /// <param name="bredd">Specifies the width of the world</param>
-        /// <param name="höjd">Specifies the height of the world</param>
-        public GameWorld(int bredd, int höjd)
+        /// <param name="width">Specifies the width of the world</param>
+        /// <param name="height">Specifies the height of the world</param>
+        public GameWorld(int width, int height)
         {
-            this.bredd = bredd;
-            this.höjd = höjd; 
+            this.width = width;
+            this.height = height; 
         }
         /// <summary>
         /// Method that will loop over all the objects within the gameObjects list and do their Update-method.

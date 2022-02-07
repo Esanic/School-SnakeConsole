@@ -25,13 +25,13 @@ namespace GruppSnake
             ConsoleRenderer renderer = new ConsoleRenderer(world);
 
             //Instanciating the player
-            Player spelare = new Player('0', world);
+            Player player = new Player('0', world);
             //Instanciating the food
-            Food mat = new Food('#', world, difficulty);
+            Food food = new Food('#', world, difficulty);
             
             //Adds the objects to the gameObjects list
-            world.gameObjects.Add(mat);
-            world.gameObjects.Add(spelare);
+            world.gameObjects.Add(food);
+            world.gameObjects.Add(player);
 
             // Mainloop to check if the game is still running
             bool running = true;
@@ -50,39 +50,39 @@ namespace GruppSnake
                         break;
                     //up
                     case ConsoleKey.W:
-                        spelare.direction = Player.Direction.Up;
+                        player.direction = Player.Direction.Up;
                         break;
                     case ConsoleKey.UpArrow:
-                        spelare.direction = Player.Direction.Up;
+                        player.direction = Player.Direction.Up;
                         break;
                     //down
                     case ConsoleKey.S:
-                        spelare.direction = Player.Direction.Down;
+                        player.direction = Player.Direction.Down;
                         break;
                     case ConsoleKey.DownArrow:
-                        spelare.direction = Player.Direction.Down;
+                        player.direction = Player.Direction.Down;
                         break;
                     //left
                     case ConsoleKey.A:
-                        spelare.direction = Player.Direction.Left;
+                        player.direction = Player.Direction.Left;
                         break;
                     case ConsoleKey.LeftArrow:
-                        spelare.direction = Player.Direction.Left;
+                        player.direction = Player.Direction.Left;
                         break;
                     //right
                     case ConsoleKey.D:
-                        spelare.direction = Player.Direction.Right;
+                        player.direction = Player.Direction.Right;
                         break;
                     case ConsoleKey.RightArrow:
-                        spelare.direction = Player.Direction.Right;
+                        player.direction = Player.Direction.Right;
                         break;
                 }
 
                 // Cleans the world, checks if the head has collided
                 // Updates the world and then render everything again
                 renderer.Clean();
-                spelare.CollisionCheck();
-                if (spelare.CollisionCheck() == false)
+                player.CollisionCheck();
+                if (player.CollisionCheck() == false)
                 {
                     world.gameObjects.Clear();
                     Console.Clear();
@@ -107,69 +107,12 @@ namespace GruppSnake
 
         static void Main(string[] args)
         {
-            Console.SetWindowSize(50,20);
-            Console.SetBufferSize(50,20);
+            Console.SetWindowSize(50, 20);
+            Console.SetBufferSize(50, 20);
 
-            bool running = true;
-            
-            Console.WriteLine("Välkommen till Snake!");
-            Console.WriteLine("---------------------");
-            while (running == true)
-            {
-                string menuChoice;
-                Console.WriteLine("1. Spela");
-                Console.WriteLine("2. Instruktioner");
-                Console.WriteLine("3. Avsluta");
-                Console.WriteLine("");
-                Console.Write("Ditt svar: ");
-                menuChoice = Console.ReadLine();
-
-                switch (menuChoice)
-                {
-                    case "1":
-                        Console.Clear();
-                        bool runningChoiceOne = true;
-                        while (runningChoiceOne == true)
-                        {
-                            Console.WriteLine("Vänligen ange en svårighetsnivå. 1-9");
-                            Console.WriteLine("");
-                            Console.Write("Ditt svar: ");
-                            string strDifficulty = Console.ReadLine();
-
-                            if (Regex.IsMatch(strDifficulty, @"\b[1-9]\b"))
-                            {
-                                int difficulty = int.Parse(strDifficulty);
-                                Console.Clear();
-                                Loop(difficulty);
-                                Console.Clear();
-                                Console.SetCursorPosition(0, 0);
-                                break;
-                            }
-                            else
-                            {
-                                Console.Clear();
-                                Console.WriteLine("Du angav inte en siffra mellan 1-9. Försök igen.");
-                                Console.ReadLine();
-                                Console.Clear();
-                            }
-                        }
-                        break;
-                   case "2":
-                        TypeOut Instructions = new TypeOut();
-                        Instructions.Instructions();
-                        break;
-                   case "3":
-                        Console.Clear();
-                        running = false;
-                        break;
-                    default:
-                        Console.Clear();
-                        Console.WriteLine("Du angav inte ett giltigt menyval. Försök igen.");
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
-                }
+            Menu startMenu = new Menu();
+            startMenu.StartMenu();
             }
         }
     }
-}
+

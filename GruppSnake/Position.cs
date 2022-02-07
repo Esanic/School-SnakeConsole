@@ -17,12 +17,12 @@ namespace GruppSnake
         /// <summary>
         /// Creates the positioning of an object.
         /// </summary>
-        /// <param name="bredd">Position on the vertical axis</param>
-        /// <param name="höjd">Position on the hortizontal axis</param>
-        public Position(int bredd, int höjd)
+        /// <param name="width">Position on the vertical axis</param>
+        /// <param name="height">Position on the hortizontal axis</param>
+        public Position(int width, int height)
         {
-            this.x = bredd;
-            this.y = höjd;
+            this.x = width;
+            this.y = height;
         }
     }
 }

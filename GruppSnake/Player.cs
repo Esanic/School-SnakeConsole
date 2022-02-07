@@ -32,7 +32,7 @@ namespace GruppSnake
         {
             this.appearance = appearance;
             world = gameWorld;
-            position = new Position(world.bredd/2, world.höjd/2);
+            position = new Position(world.width/2, world.height/2);
         }
         
         /// <summary>
@@ -40,25 +40,19 @@ namespace GruppSnake
         /// by incrementing och decrementing the position in both hortizontal and vertical axises of the navigable unit.
         /// </summary>
         public override void Update()
-        {
-            if (direction == Direction.Pause)
-            {
-                position.x = position.x;
-                position.y = position.y;
-            }
-                
+        {       
             if (direction == Direction.Left)
             {
                 if(position.x<=0)
                 {
-                    position.x = world.bredd-1;
+                    position.x = world.width-1;
                 }
                 else
                 position.x -= 1;
             }
             if (direction == Direction.Right)
             {
-                if(position.x >= world.bredd-1)
+                if(position.x >= world.width-1)
                 {
                     position.x = 0;
                 }
@@ -69,14 +63,14 @@ namespace GruppSnake
             {
                 if (position.y <= 0)
                 {
-                    position.y = world.höjd-1;
+                    position.y = world.height-1;
                 }
                 else
                 position.y -= 1;
             }
             if (direction == Direction.Down)
             {
-                if (position.y >= world.höjd-1)
+                if (position.y >= world.height-1)
                 {
                     position.y = 0;
                 }
