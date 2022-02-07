@@ -12,7 +12,7 @@ namespace GruppSnake
         /// <summary>
         /// Method that handles the Start menu
         /// </summary>
-        public void StartMenu()
+        public void StartMenu(int windowWidth, int windowHeight)
         {
             bool running = true;
 
@@ -44,7 +44,7 @@ namespace GruppSnake
                             {
                                 int difficulty = int.Parse(strDifficulty);
                                 Console.Clear();
-                                Program.Loop(difficulty);
+                                Program.Loop(difficulty, windowWidth, windowHeight);
                                 Console.Clear();
                                 Console.SetCursorPosition(0, 0);
                                 break;

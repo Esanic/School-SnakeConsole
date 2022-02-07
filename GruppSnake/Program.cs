@@ -14,14 +14,14 @@ namespace GruppSnake
         /// <summary>
         /// Method that starts the game and have a loop to check if the player either quit or has lost.
         /// </summary>
-        public static void Loop(int difficulty)
+        public static void Loop(int difficulty, int windowWidth, int windowHeight)
         {
 
             // Initializing the game
             int frameRate = difficulty*2;
 
             //Instanciating a GameWorld and a ConsoleRenderer
-            GameWorld world = new GameWorld(50,20);
+            GameWorld world = new GameWorld(windowWidth,windowHeight);
             ConsoleRenderer renderer = new ConsoleRenderer(world);
 
             //Instanciating the player
@@ -104,14 +104,19 @@ namespace GruppSnake
                 }
             }
         }
-
+        /// <summary>
+        /// Main method that will set the window size and enter the menu.
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Console.SetWindowSize(50, 20);
-            Console.SetBufferSize(50, 20);
+            WindowSize windowSize = new WindowSize(50, 20);
+
+            Console.SetWindowSize(windowSize.width, windowSize.height);
+            Console.SetBufferSize(windowSize.width, windowSize.height);
 
             Menu startMenu = new Menu();
-            startMenu.StartMenu();
+            startMenu.StartMenu(windowSize.width, windowSize.height);
             }
         }
     }

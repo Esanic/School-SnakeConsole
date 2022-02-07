@@ -5,20 +5,18 @@ using System.Text;
 namespace GruppSnake
 {
     /// <summary>
-    /// Class that handles the console window size and also renders the score and appearance of the different game objects.
+    /// Class that renders the score and appearance of the different game objects.
     /// </summary>
     class ConsoleRenderer
     {
         private GameWorld world;
         /// <summary>
-        /// Sets the console window size according to the given world size.
+        /// Constructor that recieves the world to render in.
         /// </summary>
         /// <param name="gameWorld">What world the constructor should use to set the size of the console window.</param>
         public ConsoleRenderer(GameWorld gameWorld)
         {
             world = gameWorld;
-            Console.SetWindowSize(world.width, world.height);
-            Console.SetBufferSize(world.width, world.height);
         }
 
         /// <summary>
