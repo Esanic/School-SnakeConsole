@@ -10,13 +10,15 @@ namespace GruppSnake
     class ConsoleRenderer
     {
         private GameWorld world;
+        private BadFood badFood;
         /// <summary>
         /// Constructor that recieves the world to render in.
         /// </summary>
         /// <param name="gameWorld">What world the constructor should use to set the size of the console window.</param>
-        public ConsoleRenderer(GameWorld gameWorld)
+        public ConsoleRenderer(GameWorld gameWorld, BadFood badFood)
         {
             world = gameWorld;
+            this.badFood = badFood;
         }
 
         /// <summary>
@@ -29,13 +31,21 @@ namespace GruppSnake
             Console.Title = $"Snake - Poäng: {world.score}";
             Console.CursorVisible = false;
 
-            for (int i = world.gameObjects.Count - 1; i >= 0; i--)
+
+            for (int i = world.gameObjects.Count - 1; i >= 1; i--)
             {
                 Console.SetCursorPosition(world.gameObjects[i].position.x, world.gameObjects[i].position.y);
                 Console.ForegroundColor = world.gameObjects[i].color;
                 Console.Write(world.gameObjects[i].appearance);
                 Console.ResetColor();
+            }
 
+            if (badFood.chance == 1)
+            {
+                Console.SetCursorPosition(world.gameObjects[0].position.x, world.gameObjects[0].position.y);
+                Console.ForegroundColor = world.gameObjects[0].color;
+                Console.Write(world.gameObjects[0].appearance);
+                Console.ResetColor();
             }
         }
         /// <summary>

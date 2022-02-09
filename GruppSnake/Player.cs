@@ -85,9 +85,9 @@ namespace GruppSnake
         /// <returns>if the head collisions with it's tail it returns false, otherwise true</returns>
         public bool CollisionCheck()
         {
-            for (int i = 3; i < world.gameObjects.Count; i++)
+            for (int i = 4; i < world.gameObjects.Count; i++)
             {
-                if (world.gameObjects[i].position.x == world.gameObjects[1].position.x && world.gameObjects[i].position.y == world.gameObjects[1].position.y)
+                if (world.gameObjects[i].position.x == world.gameObjects[2].position.x && world.gameObjects[i].position.y == world.gameObjects[2].position.y)
                 {
                     return false;
                 }

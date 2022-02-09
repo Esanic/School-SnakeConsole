@@ -17,19 +17,26 @@ namespace GruppSnake
         public static void Loop(int difficulty, int windowWidth, int windowHeight)
         {
 
+            
             // Initializing the game
             int frameRate = difficulty*2;
 
             //Instanciating a GameWorld and a ConsoleRenderer
+            FollowCount followCount = new FollowCount();
             GameWorld world = new GameWorld(windowWidth-1,windowHeight);
-            ConsoleRenderer renderer = new ConsoleRenderer(world);
+            BadFood badFood = new BadFood('#', world, difficulty, ConsoleColor.Magenta, followCount);
+            ConsoleRenderer renderer = new ConsoleRenderer(world, badFood);
 
-            //Instanciating the player
+            //Instanciating the player1
+
             Player player = new Player('0', world, ConsoleColor.DarkGreen);
             //Instanciating the food
-            Food food = new Food('#', world, difficulty, ConsoleColor.DarkRed);
+            Food food = new Food('#', world, difficulty, ConsoleColor.DarkRed, followCount, badFood);
+
             
+
             //Adds the objects to the gameObjects list
+            world.gameObjects.Add(badFood);
             world.gameObjects.Add(food);
             world.gameObjects.Add(player);
 

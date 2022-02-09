@@ -54,7 +54,7 @@ namespace GruppSnake
                             {
                                 Console.Clear();
                                 Console.WriteLine("Du angav inte en siffra mellan 1-9. Försök igen.");
-                                Console.ReadLine();
+                                Thread.Sleep(2000);
                                 Console.Clear();
                             }
                         }
@@ -70,7 +70,7 @@ namespace GruppSnake
                     default:
                         Console.Clear();
                         Console.WriteLine("Du angav inte ett giltigt menyval. Försök igen.");
-                        Console.ReadLine();
+                        Thread.Sleep(2000);
                         Console.Clear();
                         break;
                 }

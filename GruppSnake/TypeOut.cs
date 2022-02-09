@@ -56,24 +56,40 @@ namespace GruppSnake
             Console.WriteLine("-------------");
             Console.Write("UPP:");
             Console.SetCursorPosition(10, 2);
-            Console.Write("W eller piltangent upp");
-            Console.WriteLine("");
-            Console.WriteLine("NER:");
+            Console.WriteLine("W eller piltangent upp");
+            Console.Write("NER:");
             Console.SetCursorPosition(10, 3);
-            Console.Write("S eller piltangent ner");
-            Console.WriteLine("");
-            Console.WriteLine("VÄNSTER:");
+            Console.WriteLine("S eller piltangent ner");
+
+            Console.Write("VÄNSTER:");
             Console.SetCursorPosition(10, 4);
-            Console.Write("A eller piltangent vänster");
-            Console.WriteLine("");
-            Console.WriteLine("HÖGER:");
+            Console.WriteLine("A eller piltangent vänster");
+
+            Console.Write("HÖGER:");
             Console.SetCursorPosition(10, 5);
-            Console.Write("D eller piltangent höger");
-            Console.WriteLine("");
-            Console.WriteLine("AVSLUTA:");
+            Console.WriteLine("D eller piltangent höger");
+
+            Console.Write("AVSLUTA:");
             Console.SetCursorPosition(10, 6);
-            Console.Write("Q");
+            Console.WriteLine("Q");
             Console.WriteLine("");
+
+
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("#");
+            Console.ResetColor();
+            Console.Write(":");
+            Console.SetCursorPosition(10, 8);
+            Console.WriteLine("Bra mat, ökar din poäng");
+            
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write("#");
+            Console.ResetColor();
+            Console.Write(":");
+            Console.SetCursorPosition(10, 9);
+            Console.WriteLine("Dålig mat, minskar din poäng");
+
+
             Console.WriteLine("");
             Console.Write("Tryck Enter för att gå tillbaka...");
             Console.ReadLine();
