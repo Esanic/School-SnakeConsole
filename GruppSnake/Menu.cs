@@ -47,6 +47,7 @@ namespace GruppSnake
                                 Program.Loop(difficulty, windowWidth, windowHeight);
                                 Console.Clear();
                                 Console.SetCursorPosition(0, 0);
+                                Console.Title = "Snake";
                                 break;
                             }
                             else

@@ -52,7 +52,7 @@ namespace GruppSnake
             }
             if (direction == Direction.Right)
             {
-                if(position.x >= world.width-1)
+                if(position.x == world.width-1)
                 {
                     position.x = 0;
                 }
@@ -70,7 +70,7 @@ namespace GruppSnake
             }
             if (direction == Direction.Down)
             {
-                if (position.y >= world.height-1)
+                if (position.y == world.height-1)
                 {
                     position.y = 0;
                 }

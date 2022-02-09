@@ -21,7 +21,7 @@ namespace GruppSnake
             int frameRate = difficulty*2;
 
             //Instanciating a GameWorld and a ConsoleRenderer
-            GameWorld world = new GameWorld(windowWidth,windowHeight);
+            GameWorld world = new GameWorld(windowWidth-1,windowHeight);
             ConsoleRenderer renderer = new ConsoleRenderer(world);
 
             //Instanciating the player
@@ -110,7 +110,7 @@ namespace GruppSnake
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            WindowSize windowSize = new WindowSize(50, 20);
+            WindowSize windowSize = new WindowSize(51, 20);
             Console.Title = "Snake";
             Console.SetWindowSize(windowSize.width, windowSize.height);
             Console.SetBufferSize(windowSize.width, windowSize.height);
