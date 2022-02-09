@@ -28,11 +28,12 @@ namespace GruppSnake
         /// </summary>
         /// <param name="appearance">What the player will look like when rendered.</param>
         /// <param name="gameWorld">What world the player will navigate in.</param>
-        public Player(char appearance, GameWorld gameWorld)
+        public Player(char appearance, GameWorld gameWorld, ConsoleColor color)
         {
             this.appearance = appearance;
             world = gameWorld;
             position = new Position(world.width/2, world.height/2);
+            this.color = color;
         }
         
         /// <summary>

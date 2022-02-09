@@ -32,24 +32,10 @@ namespace GruppSnake
             for (int i = world.gameObjects.Count - 1; i >= 0; i--)
             {
                 Console.SetCursorPosition(world.gameObjects[i].position.x, world.gameObjects[i].position.y);
-                if(world.gameObjects[i] is Food)
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.Write(world.gameObjects[i].appearance);
-                    Console.ResetColor();
-                }
-                if (world.gameObjects[i] is Player)
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkGreen;
-                    Console.Write(world.gameObjects[i].appearance);
-                    Console.ResetColor();
-                }
-                if (world.gameObjects[i] is Tail)
-                {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write(world.gameObjects[i].appearance);
-                    Console.ResetColor();
-                }
+                Console.ForegroundColor = world.gameObjects[i].color;
+                Console.Write(world.gameObjects[i].appearance);
+                Console.ResetColor();
+
             }
         }
         /// <summary>

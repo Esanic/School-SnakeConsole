@@ -12,6 +12,7 @@ namespace GruppSnake
     {
         public Position position;
         public char appearance;
+        public ConsoleColor color;
 
         public abstract void Update();
     }

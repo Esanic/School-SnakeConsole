@@ -20,11 +20,12 @@ namespace GruppSnake
         /// <param name="appearance">What the tail will look like when rendered.</param>
         /// <param name="world">What world the tail will operate in</param>
         /// <param name="follow">What index number the tail will follow</param>
-        public Tail(char appearance, GameWorld world, int follow)
+        public Tail(char appearance, GameWorld world, int follow, ConsoleColor color)
         {
             this.appearance = appearance;
             this.world = world;
             followCount = follow;
+            this.color = color;
 
             position = new Position(world.gameObjects[followCount].position.x, world.gameObjects[followCount].position.y);
            

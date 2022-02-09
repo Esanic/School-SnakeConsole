@@ -25,9 +25,9 @@ namespace GruppSnake
             ConsoleRenderer renderer = new ConsoleRenderer(world);
 
             //Instanciating the player
-            Player player = new Player('0', world);
+            Player player = new Player('0', world, ConsoleColor.DarkGreen);
             //Instanciating the food
-            Food food = new Food('#', world, difficulty);
+            Food food = new Food('#', world, difficulty, ConsoleColor.DarkRed);
             
             //Adds the objects to the gameObjects list
             world.gameObjects.Add(food);

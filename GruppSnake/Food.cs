@@ -23,12 +23,13 @@ namespace GruppSnake
         /// <param name="appearance">What the food will look like when rendered.</param>
         /// <param name="gameWorld">What world the food will spawn in.</param>
         /// <param name="spelare1">Which player will eat the food</param>
-        public Food(char appearance, GameWorld gameWorld, int difficulty)
+        public Food(char appearance, GameWorld gameWorld, int difficulty, ConsoleColor color)
         {
             this.appearance = appearance;
             world = gameWorld;
             randomPosition();
             this.difficulty = difficulty;
+            this.color = color;
 
         }
         /// <summary>
@@ -56,7 +57,7 @@ namespace GruppSnake
                 randomPosition();
                 world.score += difficulty;
                 
-                Tail tail = new Tail('o', world, followCount);
+                Tail tail = new Tail('o', world, followCount, ConsoleColor.Green);
                 world.gameObjects.Add(tail);
                 followCount++;
             }
